@@ -3,13 +3,15 @@ dotenv.config();
 import express from 'express';
 import cors from 'cors';
 import connectDB from './db';
+import router from './routes';
+import { errorLogger, errorResponder } from './middlewares/error';
 
 const app = express();
 const port = process.env.PORT || '5000';
 
 app.use(cors());
 
-app.use('/', express.json());
+app.use('/', express.json(), router, errorLogger, errorResponder);
 
 const connectServer = async () => {
   try {

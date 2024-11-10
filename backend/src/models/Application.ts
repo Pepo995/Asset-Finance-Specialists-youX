@@ -1,6 +1,7 @@
 import { model, Schema } from 'mongoose';
+import { IApplication } from '../interfaces/applications';
 
-const ApplicationSchema = new Schema(
+const ApplicationSchema = new Schema<IApplication>(
   {
     user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
     income: Number,
@@ -11,6 +12,6 @@ const ApplicationSchema = new Schema(
   { timestamps: true },
 );
 
-const Application = model('Application', ApplicationSchema);
+const Application = model<IApplication>('Application', ApplicationSchema);
 
 export default Application;
