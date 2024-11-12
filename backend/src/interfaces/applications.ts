@@ -1,4 +1,5 @@
 import { Document, Schema } from 'mongoose';
+import { z } from 'zod';
 
 export interface IApplication extends Document {
   user: Schema.Types.ObjectId;
@@ -8,6 +9,18 @@ export interface IApplication extends Document {
   liabilities: number;
 }
 
-export interface createApplicationParams {
-  userId: number;
-}
+export const createApplicationParams = z.object({
+  income: z.number(),
+  expenses: z.number(),
+  assets: z.number(),
+  liabilities: z.number(),
+});
+export type CreateApplicationParams = z.infer<typeof createApplicationParams>;
+
+export const updateApplicationParams = z.object({
+  income: z.number().optional(),
+  expenses: z.number().optional(),
+  assets: z.number().optional(),
+  liabilities: z.number().optional(),
+});
+export type UpdateApplicationParams = z.infer<typeof updateApplicationParams>;

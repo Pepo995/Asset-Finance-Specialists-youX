@@ -5,47 +5,72 @@ import {
   getApplicationsByUser,
   updateApplication,
 } from '../service/applications';
+import { authenticate } from '../middlewares';
+import { CreateApplicationParams, createApplicationParams, updateApplicationParams } from '../interfaces/applications';
+import { getUserParams } from '../interfaces/users';
 
 const router = Router();
 
-router.get('/:userId', async ({ params }: Request, res: Response, next: NextFunction) => {
-  try {
-    const applications = await getApplicationsByUser(params.userId);
+router.get(
+  '/',
+  authenticate.authenticate('jwt', { session: false }),
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const { id } = getUserParams.parse(req.user);
+      const applications = await getApplicationsByUser(id);
 
-    res.status(200).send(applications);
-  } catch (error) {
-    next(error);
-  }
-});
+      res.status(200).send(applications);
+    } catch (error) {
+      next(error);
+    }
+  },
+);
 
-router.post('/:userId', async ({ params, body }: Request, res: Response, next: NextFunction) => {
-  try {
-    const application = await createApplication(params.userId, body);
+router.post(
+  '/create',
+  authenticate.authenticate('jwt', { session: false }),
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const { id } = getUserParams.parse(req.user);
+      const parsed = createApplicationParams.parse(req.body);
+      const application = await createApplication(id, parsed);
 
-    res.status(201).send(application);
-  } catch (error) {
-    next(error);
-  }
-});
+      res.status(201).send(application);
+    } catch (error) {
+      next(error);
+    }
+  },
+);
 
-router.put('/:userId', async ({ body, params }: Request, res: Response, next: NextFunction) => {
-  try {
-    const application = await updateApplication(params.userId, body);
+router.put(
+  '/:id',
+  authenticate.authenticate('jwt', { session: false }),
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const { id } = req.params;
+      const parsed = updateApplicationParams.parse(req.body);
+      const application = await updateApplication(id, parsed);
 
-    res.status(200).send(application);
-  } catch (error) {
-    next(error);
-  }
-});
+      res.status(200).send(application);
+    } catch (error) {
+      next(error);
+    }
+  },
+);
 
-router.delete('/:userId', async ({ params }: Request, res: Response, next: NextFunction) => {
-  try {
-    const application = await deleteApplication(params.userId);
+router.delete(
+  '/:id',
+  authenticate.authenticate('jwt', { session: false }),
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const { id } = req.params;
+      const application = await deleteApplication(id);
 
-    res.status(200).send(application);
-  } catch (error) {
-    next(error);
-  }
-});
+      res.status(200).send(application);
+    } catch (error) {
+      next(error);
+    }
+  },
+);
 
 export default router;

@@ -5,13 +5,14 @@ import cors from 'cors';
 import connectDB from './db';
 import router from './routes';
 import { errorLogger, errorResponder } from './middlewares/error';
+import { authenticate } from './middlewares';
 
 const app = express();
 const port = process.env.PORT || '5000';
 
 app.use(cors());
 
-app.use('/', express.json(), router, errorLogger, errorResponder);
+app.use('/', express.json(), authenticate.initialize(), router, errorLogger, errorResponder);
 
 const connectServer = async () => {
   try {
