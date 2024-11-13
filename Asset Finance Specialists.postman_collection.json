@@ -1,0 +1,503 @@
+{
+	"info": {
+		"_postman_id": "3021c62a-597d-4752-994a-5525365dc5ba",
+		"name": "Asset Finance Specialists",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29629477"
+	},
+	"item": [
+		{
+			"name": "UpdateApplication",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MzJkNWE0Njc5ZGU3ZGE1ZTA0NDczYyIsImVtYWlsIjoiam9hQGVtYWlsLmNvbSIsImlhdCI6MTczMTQ0MzU2OH0.10pZ0LPEkWGpTGL-jHsrRfRbGyRWAB6_EVF29MLXmIk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"income\": 30000, \"expenses\": 4000, \"assets\": 5000, \"liabilities\": 7000}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/applications/6733bf48da157d7b98ef1745",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"applications",
+						"6733bf48da157d7b98ef1745"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteApplication",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MzJkNWE0Njc5ZGU3ZGE1ZTA0NDczYyIsImVtYWlsIjoiam9hQGVtYWlsLmNvbSIsImlhdCI6MTczMTQ0MzU2OH0.10pZ0LPEkWGpTGL-jHsrRfRbGyRWAB6_EVF29MLXmIk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/applications/6733bf48da157d7b98ef1745",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"applications",
+						"6733bf48da157d7b98ef1745"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateUser",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\"name\": \"Michael Collins\", \"email\": \"mic@email.com\", \"password\": \"12345Mic\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CreateUser",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\"name\": \"Michael Collins\", \"email\": \"mic@email.com\", \"password\": \"12345Mic\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "243"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f3-bbzbI+OrSrPKpZGGznqJHBfxx1E\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Nov 2024 08:12:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Michael Collins\",\n    \"email\": \"mic@email.com\",\n    \"password\": \"$2b$10$xCm2oE5WtxeOAQQosv9ko.6l4j.3STBktanRWzcWG3UmdlvQc0/gi\",\n    \"_id\": \"67345f7c9fa71162d39c42b5\",\n    \"createdAt\": \"2024-11-13T08:12:44.062Z\",\n    \"updatedAt\": \"2024-11-13T08:12:44.062Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  { \"email\": \"mic@email.com\", \"password\": \"12345Mic\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  { \"email\": \"mic@email.com\", \"password\": \"12345Mic\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "192"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c0-3Ex85mOC+24Bq63VuqgfbQtN9ok\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Nov 2024 08:16:49 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MzQ1ZjdjOWZhNzExNjJkMzljNDJiNSIsImVtYWlsIjoibWljQGVtYWlsLmNvbSIsImlhdCI6MTczMTQ4NTgwOX0.Wk7PwP_6CgFABtJcAGPAi0hEur-lD3mFZouH_Pa3kuk\"\n}"
+				}
+			]
+		},
+		{
+			"name": "GetApplicationsByUser",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MzQ1ZjdjOWZhNzExNjJkMzljNDJiNSIsImVtYWlsIjoibWljQGVtYWlsLmNvbSIsImlhdCI6MTczMTQ4NTgwOX0.Wk7PwP_6CgFABtJcAGPAi0hEur-lD3mFZouH_Pa3kuk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/applications",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"applications"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetApplicationsByUser",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/applications",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"applications"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "220"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"dc-yoggtDQHhjP5mdtXtdRPlnVZx9A\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Nov 2024 08:24:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"673462109fa71162d39c42ba\",\n        \"user\": \"67345f7c9fa71162d39c42b5\",\n        \"income\": 30000,\n        \"expenses\": 4000,\n        \"assets\": 5000,\n        \"liabilities\": 7000,\n        \"createdAt\": \"2024-11-13T08:23:44.112Z\",\n        \"updatedAt\": \"2024-11-13T08:23:44.112Z\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "CreateApplicationsByUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MzQ1ZjdjOWZhNzExNjJkMzljNDJiNSIsImVtYWlsIjoibWljQGVtYWlsLmNvbSIsImlhdCI6MTczMTQ4NTgwOX0.Wk7PwP_6CgFABtJcAGPAi0hEur-lD3mFZouH_Pa3kuk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"income\": 30000, \"expenses\": 4000, \"assets\": 5000, \"liabilities\": 7000}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/applications/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"applications",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CreateApplicationsByUser",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"income\": 30000, \"expenses\": 4000, \"assets\": 5000, \"liabilities\": 7000}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/applications/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"applications",
+								"create"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "435"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1b3-IrcFXSz9EAo4BhIjR/J00gcyzMA\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Nov 2024 08:23:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"user\": {\n        \"_id\": \"67345f7c9fa71162d39c42b5\",\n        \"name\": \"Michael Collins\",\n        \"email\": \"mic@email.com\",\n        \"password\": \"$2b$10$xCm2oE5WtxeOAQQosv9ko.6l4j.3STBktanRWzcWG3UmdlvQc0/gi\",\n        \"createdAt\": \"2024-11-13T08:12:44.062Z\",\n        \"updatedAt\": \"2024-11-13T08:12:44.062Z\",\n        \"__v\": 0\n    },\n    \"income\": 30000,\n    \"expenses\": 4000,\n    \"assets\": 5000,\n    \"liabilities\": 7000,\n    \"_id\": \"673462109fa71162d39c42ba\",\n    \"createdAt\": \"2024-11-13T08:23:44.112Z\",\n    \"updatedAt\": \"2024-11-13T08:23:44.112Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		}
+	]
+}

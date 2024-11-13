@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { ApplicationInterface } from '../interfaces/applications';
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+
 const applicationsApi = axios.create({
-  baseURL: `http://localhost:5000/applications`,
+  baseURL: `${apiUrl}/applications`,
 });
 
 export const getApplications = async () => {

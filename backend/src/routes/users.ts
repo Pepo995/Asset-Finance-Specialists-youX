@@ -48,13 +48,4 @@ router.post('/login', async ({ body }: { body: LoginUserParams }, res: Response,
   }
 });
 
-router.post('/', async (req: Request, res: Response) => {
-  try {
-    const user = await createUser(req.body);
-    res.status(201).json(user);
-  } catch (error) {
-    res.status(500).json({ error: 'Error creating user' });
-  }
-});
-
 export default router;
